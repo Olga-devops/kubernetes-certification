@@ -8,9 +8,11 @@ spec:
     image: busybox
     command: ['sh', '-c', 'echo Hello Kubernetes World! && sleep 36000' ]
     resources:
+      
       requests:
         memory: "256Mi"
         cpu: "250m"
+
       limits:
         memory: "300Mi"
         cpu: "500m"
