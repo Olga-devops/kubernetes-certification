@@ -1,0 +1,1 @@
+map[replicas:4 selector:map[matchLabels:map[run:redis]] strategy:map[] template:map[metadata:map[creationTimestamp:<nil> labels:map[run:redis]] spec:map[containers:[map[image:redis name:redis resources:map[]]]]]]
