@@ -3,27 +3,25 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: redis
-  name: redis
+    run: nginx
+  name: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: redis
+      run: nginx
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        run: redis
+        run: nginx
     spec:
       containers:
-      - image: redis
-        name: redis
+      - env:
+        - name: NGINX_PORT
+          value: "8080"
+        image: nginx
+        name: nginx
         resources: {}
-        volumeMounts:
-        - name: volume-mount
-          mountPath: /data/redis
-      volumes:
-      - name: volume-mount
-        emptyDir: {}
+status: {}

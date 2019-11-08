@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bumpy-llama
+  name: bumpy-llama
+spec:
+  volumes:
+  - name: shared-folder
+    emptyDir: {}
+  
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - if [ -f /workdir/eager.txt ]; then sleep 1000000; else exit 1; fi
+    image: alpine
+    name: bumpy-llama
+    volumeMounts:
+    - name: shared-folder
+      mountPath: /workdir/
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c',  'touch /workdir/eager.txt'] 
+    volumeMounts:
+    - name: shared-folder
+      mountPath: /workdir/
