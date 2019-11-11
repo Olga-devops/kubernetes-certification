@@ -1,0 +1,5 @@
+Server:    10.19.240.10
+Address 1: 10.19.240.10 kube-dns.kube-system.svc.cluster.local
+
+Name:      nginx-dns
+Address 1: 10.16.0.44
