@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    pipeline_stage: prod
+  name: kual0201
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      pipeline_stage: prod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        pipeline_stage: prod
+    spec:
+      containers:
+      - image: redis
+        name: kual0201
+        resources: {}
+status: {}

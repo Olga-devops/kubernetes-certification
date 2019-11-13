@@ -3,15 +3,16 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: non-persistent-redis
+    run: redis
   name: non-persistent-redis
 spec:
   containers:
   - image: redis
-    name: non-persistent-redis
+    name: redis
     volumeMounts:
     - name: cache-control
       mountPath: /data/redis
+   
   volumes:
   - name: cache-control
     emptyDir: {}
